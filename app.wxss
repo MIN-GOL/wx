@@ -1,0 +1,6 @@
+/**app.wxss**/
+page{
+  --tabbar-background-color: #1A1A21;
+  --tabbar-item-active-color: #FC3D49;
+  --tabbar-item-text-color:#FFFFFF;
+}
