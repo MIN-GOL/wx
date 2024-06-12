@@ -1,7 +1,0 @@
-<!--pages/index/index.wxml-->
-<van-tabbar active="{{ active }}" bind:change="onChange">
-  <van-tabbar-item icon="home-o">发现音乐</van-tabbar-item>
-  <van-tabbar-item icon="search">私人Fm</van-tabbar-item>
-  <van-tabbar-item icon="friends-o">我的音乐</van-tabbar-item>
-  <van-tabbar-item icon="setting-o">账号</van-tabbar-item>
-</van-tabbar>

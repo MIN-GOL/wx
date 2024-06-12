@@ -1,2 +1,7 @@
 <!--pages/fm/fm.wxml-->
-<text>pages/fm/fm.wxml</text>
+
+<view class="contains">
+  <view class="text">
+    私人Fm
+  </view>
+</view>

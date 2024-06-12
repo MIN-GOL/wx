@@ -1,2 +1,15 @@
 <!--pages/findMusic/findMusic.wxml-->
-<view>发现音乐</view>
+
+<view class="contains">
+  <view class="text-vip">
+    <view class="text">
+      {{time}}
+    </view>
+    <view class="vip">
+      <text decode="{{true}}">&nbsp;￥0.1 升SVIP享专属音质&nbsp;</text>
+    </view>
+  </view>
+  <button bind:tap="getMusicList">点我</button>
+  {{ mingol.creator.nickname }}
+</view>
+<van-toast id="van-toast" />

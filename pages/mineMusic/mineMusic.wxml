@@ -1,2 +1,7 @@
 <!--pages/mineMusic/mineMusic.wxml-->
-<text>pages/mineMusic/mineMusic.wxml</text>
+<view class="contains">
+  <view class="text">
+    我的音乐
+  </view>
+</view>
+

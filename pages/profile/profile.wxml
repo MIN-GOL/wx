@@ -1,2 +1,7 @@
 <!--pages/profile/profile.wxml-->
-<text>pages/profile/profile.wxml</text>
+<view class="contains">
+  <view class="text">
+    账号
+  </view>
+</view>
+

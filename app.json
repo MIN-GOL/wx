@@ -1,21 +1,49 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/findMusic/findMusic",
     "pages/fm/fm",
     "pages/mineMusic/mineMusic",
     "pages/profile/profile"
   ],
-  "renderer": "skyline",
-  "rendererOptions": {
-    "skyline": {
-      "defaultDisplayBlock": true,
-      "disableABTest": true,
-      "sdkVersionBegin": "3.0.0",
-      "sdkVersionEnd": "15.255.255"
-    }
+  "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#FC3D49",
+    "backgroundColor": "#1A1A21",
+    "list":[
+      {
+        "pagePath": "pages/findMusic/findMusic",
+        "text": "发现音乐",
+        "iconPath": "/assets/music.png",
+        "selectedIconPath": "/assets/a_music.png"
+      },
+      {
+        "pagePath": "pages/fm/fm",
+        "text": "私人Fm",
+        "iconPath": "/assets/radio.png",
+        "selectedIconPath": "/assets/a_radio.png"
+      },
+      {
+        "pagePath": "pages/mineMusic/mineMusic",
+        "text": "我的音乐",
+        "iconPath": "/assets/mine.png",
+        "selectedIconPath": "/assets/a_mine.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "/assets/profile.png",
+        "selectedIconPath": "/assets/a_profile.png"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#1A1A21"
   },
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "van-nav-bar": "@vant/weapp/nav-bar/index",
+    "van-toast": "@vant/weapp/toast/index"
+  }
 }

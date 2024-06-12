@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "发现音乐",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+
+  }
 }
