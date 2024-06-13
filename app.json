@@ -3,13 +3,14 @@
     "pages/findMusic/findMusic",
     "pages/fm/fm",
     "pages/mineMusic/mineMusic",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "pages/musicList/musicList"
   ],
   "tabBar": {
     "color": "#bfbfbf",
     "selectedColor": "#FC3D49",
     "backgroundColor": "#1A1A21",
-    "list":[
+    "list": [
       {
         "pagePath": "pages/findMusic/findMusic",
         "text": "发现音乐",

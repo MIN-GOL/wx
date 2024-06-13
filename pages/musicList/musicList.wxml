@@ -1,0 +1,13 @@
+<!--pages/musicList/musicList.wxml-->
+<view class="contains">
+  <view class="text">
+    <view>{{list.name}}</view>
+    <view>{{ list.description }}</view>
+    <view>评论数量{{ list.commentCount}}</view>
+  </view>
+  
+  <view wx:for="{{list.tracks}}" class="list">
+    {{index}}: {{item.name}} {{ item.id }}
+  </view>
+</view>
+<van-toast id="van-toast" />

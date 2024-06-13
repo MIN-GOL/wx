@@ -2,6 +2,6 @@
   "navigationBarTitleText": "发现音乐",
   "enablePullDownRefresh": true,
   "usingComponents": {
-
+    "van-image": "@vant/weapp/image/index"
   }
 }

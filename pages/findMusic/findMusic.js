@@ -4,6 +4,14 @@ const fs = wx.getFileSystemManager();
 
 
 Page({
+  // 跳转到列表详情
+  toList: function (e) {
+    const id = e.currentTarget.id
+    wx.navigateTo({
+      url: "/pages/musicList/musicList?id="+id
+    })
+  },
+
   // 获取时间
   getTimeState: function() {
     let timeNow = new Date();
@@ -44,10 +52,26 @@ Page({
           that.setData({
             mingol: res.data.result
           })
-          console.log(that.data.mingol.creator);
+          var list_m = wx.getStorageSync('list_m')
+          if (list_m.length <= 0) {
+            wx.setStorageSync('list_m', res.data)
+            console.log('本地存入成功');
+          }
+          console.log('本地已存在');
         }
       }
     })
+  },
+  // 本地读取
+  getList_m: function () {
+    var data = wx.getStorageSync('list_m');
+    if (data) {
+      this.setData({ mingol: data });
+      console.log('本地读取mingol歌单成功');
+    }else{
+      console.log('没有缓存');
+    }
+    
   },
   /**
    * 页面的初始数据
@@ -67,6 +91,7 @@ Page({
    */
   onLoad(options) {
     this.getTimeState();
+    this.getList_m();
   },
 
   /**

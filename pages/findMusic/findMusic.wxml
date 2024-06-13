@@ -9,7 +9,27 @@
       <text decode="{{true}}">&nbsp;￥0.1 升SVIP享专属音质&nbsp;</text>
     </view>
   </view>
-  <button bind:tap="getMusicList">点我</button>
-  {{ mingol.creator.nickname }}
+  <navigator url='/pages/musicList/musicList'></navigator>
+  <van-image
+  width="33.33%"
+  height="20%"
+  fit="cover"
+  id="19723756"
+  bind:tap="toList"
+  src="https://p1.music.126.net/pcYHpMkdC69VVvWiynNklA==/109951166952713766.jpg"/>
+  <van-image
+  width="33.33%"
+  height="20%"
+  fit="cover"
+  id="3779629"
+  bind:tap="toList"
+  src="https://p2.music.126.net/wVmyNS6b_0Nn-y6AX8UbpQ==/109951166952686384.jpg"/>
+  <van-image
+  width="33.33%"
+  height="20%"
+  fit="cover"
+  id="3778678"
+  bind:tap="toList"
+  src="https://p2.music.126.net/ZyUjc7K_GDpD8MO1-GQkmA==/109951166952706664.jpg"/>
 </view>
 <van-toast id="van-toast" />
