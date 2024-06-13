@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "发现音乐",
-  "enablePullDownRefresh": true,
   "usingComponents": {
-    "van-image": "@vant/weapp/image/index"
+    "van-image": "@vant/weapp/image/index",
+    "van-icon": "@vant/weapp/icon/index"
   }
 }

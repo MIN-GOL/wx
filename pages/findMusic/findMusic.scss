@@ -10,6 +10,10 @@
     align-items: center;
   }
 
+  van-image{
+    margin-left: .8rem;
+  }
+
   .text{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #FFF;
@@ -27,5 +31,42 @@
     background-color: #2f2f33;
   }
 
+  .Recommend{
+    padding: 1rem;
+
+    .icon-text{
+      display: flex;
+      align-items: center;
+
+      text{
+        margin-left: .5rem;
+        color: #FFF;
+      }
+    }
+
+    .card{
+      margin-top: 1rem;
+      width: 90vw;
+      height: 50vh;
+      background-color: #2F2F33;
+      border-radius:3%;
+
+      .item{
+
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        .van-image{
+          margin-top: 2rem;
+          margin-left: -.7rem;
+        }
+        .title{
+          margin-top: 1rem;
+          font-size: 16px;
+          color: #FFF;
+        }
+      }
+    }
+  }
 
 }

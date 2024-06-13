@@ -45,6 +45,7 @@
   "lazyCodeLoading": "requiredComponents",
   "usingComponents": {
     "van-nav-bar": "@vant/weapp/nav-bar/index",
-    "van-toast": "@vant/weapp/toast/index"
+    "van-toast": "@vant/weapp/toast/index",
+    "van-skeleton": "@vant/weapp/skeleton/index"
   }
 }

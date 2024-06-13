@@ -37,7 +37,7 @@ Page({
     wx.request({
       url: 'https://music.163.com/api/playlist/detail',
       data: {
-        id: 9773625535
+        id: 9371418354
       },
       header: {
         'content-type': 'application/json'
@@ -48,6 +48,7 @@ Page({
         console.log(code);
         if (code === -447) {
           Toast("服务器忙碌 请稍后再试");
+          that.getMusicList();
         } else {
           that.setData({
             mingol: res.data.result
@@ -66,10 +67,11 @@ Page({
   getList_m: function () {
     var data = wx.getStorageSync('list_m');
     if (data) {
-      this.setData({ mingol: data });
+      this.setData({ mingol: data.result.tracks });
       console.log('本地读取mingol歌单成功');
+      console.log(this.data.mingol);
     }else{
-      console.log('没有缓存');
+      this.getMusicList();
     }
     
   },
@@ -79,11 +81,6 @@ Page({
   data: {
     time: '',
     mingol: {},
-    list:[19723756,3779629,3778678,2250011882],
-    Soar:{},
-    New:{},
-    Hot:{},
-    Rank:{}
   },
 
   /**
