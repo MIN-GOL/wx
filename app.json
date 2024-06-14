@@ -4,7 +4,8 @@
     "pages/fm/fm",
     "pages/mineMusic/mineMusic",
     "pages/profile/profile",
-    "pages/musicList/musicList"
+    "pages/musicList/musicList",
+    "pages/radio/radio"
   ],
   "tabBar": {
     "color": "#bfbfbf",
@@ -46,6 +47,7 @@
   "usingComponents": {
     "van-nav-bar": "@vant/weapp/nav-bar/index",
     "van-toast": "@vant/weapp/toast/index",
-    "van-skeleton": "@vant/weapp/skeleton/index"
+    "van-skeleton": "@vant/weapp/skeleton/index",
+    "van-image": "@vant/weapp/image/index"
   }
 }

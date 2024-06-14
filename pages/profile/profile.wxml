@@ -1,7 +1,40 @@
 <!--pages/profile/profile.wxml-->
 <view class="contains">
-  <view class="text">
-    账号
+  <view class="header">
+    <!-- 头像 -->
+    <view class="avatar">
+      <van-image width="6rem" height="6rem" fit="cover" src="{{info.profile.avatarUrl}}" round />
+    </view>
+    <!-- 名字 -->
+    <view class="name">
+      {{info.profile.nickname}}
+      <view class="vip">
+        {{info.profile.vipType ===  11?"黑胶VIP":"普通会员"}}
+      </view>
+    </view>
+    <!-- 个人签名 -->
+    <view class="desc">{{ info.profile.signature}}</view>
+    <!-- 详细信息 -->
+    <view class="info">
+      <view><text>{{info.profile.follows}}</text>关注</view>
+      <view><text>{{info.profile.followeds}}</text>粉丝</view>
+      <view><text>Lv.{{info.level}}</text>等级</view>
+      <view><text>{{info.createDays}}时</text>听歌</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="list" wx:for="{{all}}" wx:key="index">
+      <view>
+        <view class="img">
+        <!-- <van-image width="5rem" height="5rem" fit="cover"></van-image> -->
+        </view>
+        <view class="title">
+          {{[item]}}
+        </view>
+      </view>
+    </view>
+   
   </view>
 </view>
 

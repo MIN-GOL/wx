@@ -11,7 +11,13 @@ Page({
       url: "/pages/musicList/musicList?id="+id
     })
   },
-
+  // 转到详细页面播放器
+  toRadio: function (e) {
+    const id = e.currentTarget.id
+    wx.navigateTo({
+      url: "/pages/radio/radio?id="+id
+    })
+  },
   // 获取时间
   getTimeState: function() {
     let timeNow = new Date();
@@ -44,12 +50,11 @@ Page({
       },
       success(res) {
         let code = res.data.code
-        console.log(res.data);
-        console.log(code);
         if (code === -447) {
           Toast("服务器忙碌 请稍后再试");
           that.getMusicList();
         } else {
+          console.log("网络请求成功");
           that.setData({
             mingol: res.data.result
           })
@@ -69,7 +74,6 @@ Page({
     if (data) {
       this.setData({ mingol: data.result.tracks });
       console.log('本地读取mingol歌单成功');
-      console.log(this.data.mingol);
     }else{
       this.getMusicList();
     }

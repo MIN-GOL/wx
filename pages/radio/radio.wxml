@@ -1,0 +1,9 @@
+<!--pages/radio/radio.wxml-->
+<view class="contains">
+  <view class="header">
+    {{id}}
+  </view>
+  <view class="lyric">
+   {{lyric.lrc.lyric}}
+  </view>
+</view>

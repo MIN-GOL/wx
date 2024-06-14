@@ -1,10 +1,75 @@
 /* pages/profile/profile.wxss */
-.contains{
+.contains {
   height: 100vh;
   width: 100vw;
-  background-color: #27272c;
+  background-color: #1A1A21;
 
-  .text{
-    color: #FFF;
+
+  .header {
+    height: 40vh;
+    width: 100vw;
+    background-color: #b3221d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .avatar {
+      padding-top: 2rem;
+    }
+
+    .name {
+      padding-top: 1rem;
+      color: #FFF;
+      display: flex;
+      align-items: center;
+
+      .vip{
+        margin-left: .7rem;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.493);
+      }
+    }
+
+    .desc {
+      color: rgba(255, 255, 255, 0.493);
+      font-size: 12px;
+      padding-top: .3rem;;
+    }
+
+    .info{
+      width: 750rpx;
+      display: flex;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.493);
+      font-size: 12px;
+      view{
+        margin: .3rem .5rem;
+      }
+      text{
+        color: #FFF;
+        margin-right: .2rem;
+      }
+    }
+  }
+
+  .card{
+    margin-top: -2rem;
+    background: #1A1A21;
+    border-radius: 1rem 1rem 0 0;
+    height: 60vh;
+    width: 100%;
+
+    .list{
+      display: flex;
+      align-items: center;
+
+      .img{
+  
+      }
+
+      .title{
+        color: #FFF;
+      }
+    }
   }
 }

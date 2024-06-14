@@ -1,9 +1,9 @@
 <!--pages/musicList/musicList.wxml-->
 <view class="contains">
-  <view class="header">
-    {{ list.name }}
-  </view>
-  <view class="desc">{{ list.description }}</view>
+    <view class="header">
+      {{ list.name }}
+    </view>
+    <view class="desc">{{ list.description }}</view>
   <view class="card">
     <view class="list">
       <view>评论数量{{ list.commentCount}}</view>
@@ -12,6 +12,8 @@
         <van-image
           width="5rem"
           height="5rem"
+          id="{{item.id}}"
+          bind:tap="toRadio"
           src="{{item.album.blurPicUrl}}"
         />
         <text class="item_desc">

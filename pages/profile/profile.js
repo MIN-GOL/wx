@@ -1,17 +1,65 @@
 // pages/profile/profile.js
 Page({
+  // 页面初始化
+  init: function () {
+    var that = this;
+    that.data.list.forEach(function (lid) {
+      that.getAllMusicList(lid);
+    })
+  },
+
+  // 获取个人信息
+  getInfo: function () {
+    var that = this;
+    wx.request({
+      url: 'https://music.163.com/api/v1/user/detail/600553406',
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        that.setData({
+          info: res.data
+        })
+      }
+    })
+  },
+
+  // 获取所有歌单信息
+  getAllMusicList: function (lid) {
+    var that = this;
+    wx.request({
+      url: 'https://music.163.com/api/playlist/detail',
+      data: {
+        id: lid
+      },
+      success(res) {
+        if (res.data.code === -447) {
+          that.getAllMusicList(lid);
+        } else {
+            that.setData({
+              all: { ...that.data.all, [lid]: res.data.result }
+            });
+          console.log(lid + "加载成功");
+        }
+      }
+    })
+  },
   /**
    * 页面的初始数据
    */
   data: {
-   
+    info: {},
+    list: [9773625535, 9371418354, 8216469383],
+    all:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.init();
+    this.getInfo();
+    
   },
 
   /**

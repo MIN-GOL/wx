@@ -2,7 +2,7 @@
 .contains{
   height: 100%;
   width: 100%;
-  background-color: #1A1A21;
+  background-color: #00cc99;
 
   .header{
     display: flex;
@@ -17,13 +17,13 @@
   .desc{
     margin: 0 1rem;
     font-size: 15px;
-    color: #5c5c61
+    color: #FFF
   }
 
   .card{
     height: 100%;
     width: 100vw;
-    background-color: #945858;
+    background-color: #1A1A21;
     border-radius:1rem;
     
   }
@@ -36,7 +36,7 @@
     .list_item{
       display: flex;
       margin-top: 1rem;
-      background-color: #835050;
+      background-color: #726f6f41;
       border-radius: 1rem;
       align-items: center;
 

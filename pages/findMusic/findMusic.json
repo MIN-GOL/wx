@@ -1,7 +1,6 @@
 {
   "navigationBarTitleText": "发现音乐",
   "usingComponents": {
-    "van-image": "@vant/weapp/image/index",
     "van-icon": "@vant/weapp/icon/index"
   }
 }

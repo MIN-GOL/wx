@@ -2,6 +2,7 @@
 import Toast from '@vant/weapp/toast/toast';
 
 Page({
+  // 初始化
   init: function (id) {
     var title = ''
     if (id === "19723756") {title = "飙升榜"}
@@ -12,6 +13,7 @@ Page({
     });
   },
 
+  // 获取歌单
   getMusicList: function () {
     var that = this;
     const options = that.data.list;
@@ -58,6 +60,13 @@ Page({
         console.log('本地已存在');
       }
       }
+    })
+  },
+  // 转到详细页面播放器
+  toRadio: function (e) {
+    const id = e.currentTarget.id
+    wx.navigateTo({
+      url: "/pages/radio/radio?id="+id
     })
   },
   /**

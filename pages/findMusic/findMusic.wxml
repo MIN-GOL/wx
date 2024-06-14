@@ -22,9 +22,15 @@
     <view class="card">
       <view class="item">
         <swiper style="height: 100%;" autoplay interval="3500">
-          <block wx:for="{{mingol}}">
+          <block wx:for="{{mingol}}" wx:key="index">
             <swiper-item>
-              <van-image width="15rem" height="15rem" fit="cover" src="{{item.album.blurPicUrl}}" />
+              <van-image 
+              width="15rem" 
+              height="15rem" 
+              fit="cover"
+              id="{{item.id}}"
+              bind:tap="toRadio"
+              src="{{item.album.blurPicUrl}}" />
               <view class="title">{{item.name}}</view>
             </swiper-item>
           </block>
