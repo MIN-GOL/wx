@@ -40,6 +40,7 @@ Page({
         console.log(code);
         if (code === -447) {
           Toast("服务器忙碌 请稍后再试");
+          that.getMusicList();
         }else{
           that.setData({
             list: res.data.result

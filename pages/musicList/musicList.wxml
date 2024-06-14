@@ -1,14 +1,31 @@
 <!--pages/musicList/musicList.wxml-->
 <view class="contains">
-  <view class="text">
-    <view>{{list.name}}</view>
-    <view>{{ list.description }}</view>
-    <view>评论数量{{ list.commentCount}}</view>
-    <view wx:for="{{list.tracks}}" class="list">
-    {{index}}: {{item.name}} {{ item.id }}
-   </view>
+  <view class="header">
+    {{ list.name }}
   </view>
-  
-  
+  <view class="desc">{{ list.description }}</view>
+  <view class="card">
+    <view class="list">
+      <view>评论数量{{ list.commentCount}}</view>
+      <view wx:for="{{list.tracks}}" class="list_item">
+        <view class="index">No.{{index}}</view>
+        <van-image
+          width="5rem"
+          height="5rem"
+          src="{{item.album.blurPicUrl}}"
+        />
+        <text class="item_desc">
+          <text class="m_title">
+            {{item.name}}
+          </text>
+           <text class="artist">
+            {{item.artists[0].name}}
+           </text>
+        </text>
+      </view>
+    </view>
+  </view>
+
+
 </view>
 <van-toast id="van-toast" />

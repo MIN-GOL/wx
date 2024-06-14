@@ -1,17 +1,57 @@
 /* pages/musicList/musicList.wxss */
 .contains{
-  height: 100vh;
-  width: 100vw;
-  background-color: #27272c;
+  height: 100%;
+  width: 100%;
+  background-color: #1A1A21;
 
-  .text{
-    height: 100vh;
-    width: 100vw;
-    background-color: #27272c;
+  .header{
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
     color: #FFF;
+    height: 4rem;
+    width: 100%;
+    font-size: 30px;
+  }
+
+  .desc{
+    margin: 0 1rem;
+    font-size: 15px;
+    color: #5c5c61
+  }
+
+  .card{
+    height: 100%;
+    width: 100vw;
+    background-color: #945858;
+    border-radius:1rem;
+    
   }
 
   .list{
+    padding-top: 1rem;
+    margin: 1rem;
     color: #FFF;
+
+    .list_item{
+      display: flex;
+      margin-top: 1rem;
+      background-color: #835050;
+      border-radius: 1rem;
+      align-items: center;
+
+      .index{
+        margin: .5rem;
+      }
+
+      .item_desc{
+        margin-left: .5rem;
+        margin-top: -1.5rem;
+
+        .artist{
+          color: #efefef75;
+        }
+      }
+    }
   }
 }

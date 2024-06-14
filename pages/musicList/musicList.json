@@ -2,6 +2,6 @@
   "navigationBarTitleText": "",
   "enablePullDownRefresh": true,
   "usingComponents": {
-
+    "van-image": "@vant/weapp/image/index"
   }
 }
