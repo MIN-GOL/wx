@@ -7,7 +7,7 @@
   <view class="card">
     <view class="list">
       <view>评论数量{{ list.commentCount}}</view>
-      <view wx:for="{{list.tracks}}" class="list_item">
+      <view wx:for="{{list.tracks}}" wx:key="index" class="list_item">
         <view class="index">No.{{index}}</view>
         <van-image
           width="5rem"

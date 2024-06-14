@@ -4,6 +4,11 @@
     {{id}}
   </view>
   <view class="lyric">
-   {{lyric.lrc.lyric}}
+    <view class="container">
+      <button bindtap="playAudio">播放音频</button>
+      <button bindtap="pauseAudio">暂停音频</button>
+      <button bindtap="stopAudio">停止音频</button>
+    </view>
+    {{lyric.lrc.lyric}}
   </view>
 </view>

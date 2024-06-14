@@ -49,5 +49,8 @@
     "van-toast": "@vant/weapp/toast/index",
     "van-skeleton": "@vant/weapp/skeleton/index",
     "van-image": "@vant/weapp/image/index"
+  },
+  "permissions": {
+    "audio": true
   }
 }
