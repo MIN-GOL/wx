@@ -1,13 +1,33 @@
 // pages/radio/radio.js
 Page({
+  // 开始播放
   playAudio() {
     this.innerAudioContext.play();
+    this.setData({
+      state: 'running'
+    })
   },
+  // 暂停播放
   pauseAudio() {
     this.innerAudioContext.pause();
+    this.setData({
+      state: 'paused'
+    })
   },
+  // 终止播放
   stopAudio() {
     this.innerAudioContext.stop();
+    this.setData({
+      state: 'paused',
+      'play.persent': 0
+    })
+  },
+  // 格式化时间
+  formatTime: function (num) {
+    const s = Math.floor(num/1000)
+    const minutes = Math.floor(s / 60)
+    const seconds = s % 60;
+    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
   },
   // 获取歌词
   getLyrics: function () {
@@ -29,6 +49,7 @@ Page({
       }
     })
   },
+  // 获取歌曲详细信息
   getMusicinfo: function () {
     var that = this;
     wx.request({
@@ -38,9 +59,12 @@ Page({
         ids: [that.data.id]
       }),
       success(res){
-        var data = res.data
+        var data = res.data.songs[0]
+        var d = data.duration
+        var time = that.formatTime(d)
         that.setData({
-          music: data.songs[0]
+          music: data,
+          'play.duration':time
         })
       }
     })
@@ -52,7 +76,13 @@ Page({
     url: '',
     id: '',
     lyric: {},
-    music: {}
+    music: {},
+    state: 'running',
+    play: {
+      currentTime: '00:00',
+      duration: '00:00',
+      persent: 0
+    }
   },
 
   /**
@@ -96,7 +126,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+    this.playAudio();
   },
 
   /**
@@ -117,7 +147,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
-
+    this.stopAudio();
   },
 
   /**

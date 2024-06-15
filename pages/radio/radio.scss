@@ -1,14 +1,61 @@
 /* pages/radio/radio.wxss */
 .contains{
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: #1A1A21;
 
-  .header{
-    color: #FFFFFF;
+  .control{
+    margin: 1rem 2.7rem;
+
+    van-image{
+      padding: 1rem;
+    }
+  }
+}
+
+.content-play {
+    color: #FFF;
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+  }
+  
+.content-play-info>view {
+  color: #888;
+  font-size: 11pt;
+  margin-top: 1rem;
+}
+
+.content-play-progress {
+  display: flex;
+  align-items: center;
+  margin: 2rem 3rem;
+  font-size: 9pt;
+  text-align: center;
+}
+
+.content-play-progress>view {
+  flex: 1;
+}
+
+.content-play-cover image {
+  animation: rotateImage 10s linear infinite;
+  width: 400rpx;
+  height: 400rpx;
+  border-radius: 50%;
+  margin-top: 2rem;
+  border: 1px solid #333;
+}
+
+@keyframes rotateImage {
+  from {
+    transform: rotate(0deg);
   }
 
-  .lyric{
-    color: #FFF;
+  to {
+    transform: rotate(360deg);
   }
 }

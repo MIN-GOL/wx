@@ -41,7 +41,6 @@ Page({
         console.log(res.data);
         console.log(code);
         if (code === -447) {
-          Toast("服务器忙碌 请稍后再试");
           that.getMusicList();
         }else{
           that.setData({
