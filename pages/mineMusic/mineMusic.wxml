@@ -1,7 +1,0 @@
-<!--pages/mineMusic/mineMusic.wxml-->
-<view class="contains">
-  <view class="text">
-    我的音乐
-  </view>
-</view>
-

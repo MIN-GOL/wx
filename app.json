@@ -1,8 +1,6 @@
 {
   "pages": [
     "pages/findMusic/findMusic",
-    "pages/fm/fm",
-    "pages/mineMusic/mineMusic",
     "pages/profile/profile",
     "pages/musicList/musicList",
     "pages/radio/radio"
@@ -19,14 +17,14 @@
         "selectedIconPath": "/assets/a_music.png"
       },
       {
-        "pagePath": "pages/fm/fm",
-        "text": "私人Fm",
+        "pagePath": "pages/musicList/musicList",
+        "text": "排行榜",
         "iconPath": "/assets/radio.png",
         "selectedIconPath": "/assets/a_radio.png"
       },
       {
-        "pagePath": "pages/mineMusic/mineMusic",
-        "text": "我的音乐",
+        "pagePath": "pages/radio/radio",
+        "text": "播放器",
         "iconPath": "/assets/mine.png",
         "selectedIconPath": "/assets/a_mine.png"
       },
@@ -49,8 +47,5 @@
     "van-toast": "@vant/weapp/toast/index",
     "van-skeleton": "@vant/weapp/skeleton/index",
     "van-image": "@vant/weapp/image/index"
-  },
-  "permissions": {
-    "audio": true
   }
 }

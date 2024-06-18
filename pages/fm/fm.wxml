@@ -1,7 +1,0 @@
-<!--pages/fm/fm.wxml-->
-
-<view class="contains">
-  <view class="text">
-    私人Fm
-  </view>
-</view>

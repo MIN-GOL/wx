@@ -14,6 +14,7 @@ Page({
   // 转到详细页面播放器
   toRadio: function (e) {
     const id = e.currentTarget.id
+    console.log(id);
     wx.navigateTo({
       url: "/pages/radio/radio?id="+id
     })
@@ -43,7 +44,7 @@ Page({
     wx.request({
       url: 'https://music.163.com/api/playlist/detail',
       data: {
-        id: 9371418354
+        id: 10180993460
       },
       header: {
         'content-type': 'application/json'
@@ -51,7 +52,6 @@ Page({
       success(res) {
         let code = res.data.code
         if (code === -447) {
-          Toast("服务器忙碌 请稍后再试");
           that.getMusicList();
         } else {
           console.log("网络请求成功");
@@ -71,8 +71,9 @@ Page({
   // 本地读取
   getList_m: function () {
     var data = wx.getStorageSync('list_m');
+    console.log(data.result);
     if (data) {
-      this.setData({ mingol: data.result.tracks });
+      this.setData({ mingol: data.result });
       console.log('本地读取mingol歌单成功');
     }else{
       this.getMusicList();
