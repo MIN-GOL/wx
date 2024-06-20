@@ -15,7 +15,7 @@
         <view class="content-play-progress">
           <text>{{ play.currentTime }}</text>
           <view>
-            <slider bindchanging="sliderChanging" bindchange="sliderChange" activeColor="#d33a31" block-size="12" backgroundColor="#dadada" value="{{ play.percent }}" />
+            <slider bindchanging="sliderChanging" bindchange="sliderChange" activeColor="#d33a31" block-size="12" backgroundColor="#dadada" max="{{play.max}}" value="{{ play.percent }}"  />
           </view>
           <text>{{ play.duration }}</text>
         </view>

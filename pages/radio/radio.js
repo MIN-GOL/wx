@@ -26,6 +26,9 @@ Page({
   // 渲染秒数
   sliderChanging: function (e) {
     var persent = e.detail.value
+    this.setData({
+      'play.currentTime': this.formatTime(persent*1000)
+    })
   },
   // 同步数据
   sliderChange: function (e) {
@@ -33,12 +36,10 @@ Page({
     this.setData({
       'play.persent': persent
     })
-    var time =  Math.floor(this.data.music.duration / 1000)
-    var per = this.data.play.persent/100
     this.setData({
-      'play.currentTime': this.formatTime(time*per*1000)
+      'play.currentTime': this.formatTime(persent*1000)
     })
-    this.innerAudioContext.seek(time*per)
+    this.innerAudioContext.seek(persent)
   },
   // 格式化时间
   formatTime: function (num) {
@@ -78,10 +79,12 @@ Page({
       success(res){
         var data = res.data.songs[0]
         var d = data.duration
+        var per = Math.floor(data.duration/1000)
         var time = that.formatTime(d)
         that.setData({
           music: data,
-          'play.duration':time
+          'play.duration':time,
+          'play.max': per
         })
       }
     })
@@ -96,6 +99,7 @@ Page({
     music: {},
     state: 'running',
     play: {
+      max: 0,
       currentTime: '00:00',
       duration: '00:00',
       persent: 0
@@ -123,20 +127,30 @@ Page({
     });
     this.innerAudioContext.onStop(() => {
       console.log('音频停止播放');
+      this.setData({
+        state: 'paused'
+      })
     });
     this.innerAudioContext.onEnded(() => {
       console.log('音频播放结束');
+      this.setData({
+        state: 'paused'
+      })
     });
     this.innerAudioContext.onError((res) => {
       console.error('音频播放错误', res);
+      this.setData({
+        state: 'paused'
+      })
     });
     setInterval(() => {
       if (this.data.state === "running") {
         const currentTime = this.data.play.currentTime;
         const time = parseInt(currentTime.split(':')[0]) * 60 + parseInt(currentTime.split(':')[1]) + 1
-        console.log(this.formatTime(time*1000));
+        const persent = this.data.play.persent
         this.setData({
-          'play.currentTime': this.formatTime(time*1000)
+          'play.currentTime': this.formatTime(time*1000),
+          'play.persent': persent+1
         })
       }
     }, 1000);
