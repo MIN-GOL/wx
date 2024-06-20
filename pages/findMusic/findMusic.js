@@ -7,15 +7,16 @@ Page({
   // 跳转到列表详情
   toList: function (e) {
     const id = e.currentTarget.id
-    wx.navigateTo({
-      url: "/pages/musicList/musicList?id="+id
+    // 判断缓存是否有数据 有的话进行更新
+    wx.setStorageSync('list_id', id);
+    wx.switchTab({
+      url: "/pages/musicList/musicList"
     })
   },
   // 转到详细页面播放器
   toRadio: function (e) {
     const id = e.currentTarget.id
-    console.log(id);
-    wx.navigateTo({
+    wx.switchTab({
       url: "/pages/radio/radio?id="+id
     })
   },
@@ -44,7 +45,7 @@ Page({
     wx.request({
       url: 'https://music.163.com/api/playlist/detail',
       data: {
-        id: 10180993460
+        id: 9773625535
       },
       header: {
         'content-type': 'application/json'

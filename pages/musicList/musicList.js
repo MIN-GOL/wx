@@ -11,55 +11,70 @@ Page({
     wx.setNavigationBarTitle({
       title: title
     });
+    // 判断id是否和缓存一致
+    console.log("本地"+this.data.id);
+    console.log("现在的id"+id);
+    if (this.data.id === id) {
+      this.setData({
+        list: wx.getStorageSync('musicList')
+      })
+      return
+    }else {
+      this.setData({
+        id: id
+      })
+      wx.removeStorageSync('musicList')
+    }
   },
 
   // 获取歌单
   getMusicList: function () {
     var that = this;
-    const options = that.data.list;
-    if (Object.keys(options).length === 0) {
-      console.log('没有数据 进行网络请求')
-    }else{
+    if (!wx.getStorageSync('musicList')) {
+      wx.request({
+        url: 'https://music.163.com/api/playlist/detail',
+        data: {
+          id: this.data.id
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+        success(res) {
+          let code = res.data.code
+          if (code === -447) {
+            that.getMusicList();
+          } 
+          if (code === 200 ) {
+            // 存入data
+            that.setData({
+              list: res.data.result
+            })
+            // 判断缓存
+            let sync = wx.getStorageSync('musicList')
+            if (!sync) {
+              wx.setStorageSync('musicList', res.data.result)
+              console.log('缓存成功');
+            }else{
+              console.log('有缓存 不更新');
+            }
+            wx.stopPullDownRefresh({
+              success: (res) => {
+                Toast("获取成功")
+              }
+            })
+          }
+        }
+      })
+    } else {
       console.log('有数据 不进行网络请求');
       wx.stopPullDownRefresh({
-        success:(res) => {
+        success: (res) => {
           Toast("数据已是最新")
         }
       })
       return
     }
-    wx.request({
-      url: 'https://music.163.com/api/playlist/detail',
-      data: {
-        id: that.data.id
-      },
-      header: {
-        'content-type': 'application/json'
-      },
-      success(res) {
-        let code = res.data.code
-        console.log(res.data);
-        console.log(code);
-        if (code === -447) {
-          that.getMusicList();
-        }else{
-          that.setData({
-            list: res.data.result
-          })
-          wx.stopPullDownRefresh({
-            success:(res) => {
-              Toast("获取成功")
-            }
-          })
-        var list_m = wx.getStorageSync('musicList')
-        if (list_m.length <= 0) {
-          wx.setStorageSync('musicList', res.data)
-          console.log('本地存入成功');
-        }
-        console.log('本地已存在');
-      }
-      }
-    })
+   
   },
   // 转到详细页面播放器
   toRadio: function (e) {
@@ -80,9 +95,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.data.id = options.id;
-    this.init(this.data.id)
-    this.getMusicList(this.data.id)
   },
 
   /**
@@ -96,14 +108,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    const id = wx.getStorageSync('list_id')
+    this.init(id)
+    this.getMusicList(this.data.id)
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide() {
-
+    this.setData({
+      list: ''
+    })
   },
 
   /**
