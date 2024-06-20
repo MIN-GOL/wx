@@ -3,7 +3,8 @@
     "pages/findMusic/findMusic",
     "pages/profile/profile",
     "pages/musicList/musicList",
-    "pages/radio/radio"
+    "pages/radio/radio",
+    "pages/selectMusic/selectMusic"
   ],
   "tabBar": {
     "color": "#bfbfbf",
@@ -23,8 +24,8 @@
         "selectedIconPath": "/assets/a_radio.png"
       },
       {
-        "pagePath": "pages/radio/radio",
-        "text": "播放器",
+        "pagePath": "pages/selectMusic/selectMusic",
+        "text": "搜索音乐",
         "iconPath": "/assets/mine.png",
         "selectedIconPath": "/assets/a_mine.png"
       },

@@ -19,8 +19,26 @@ Page({
     this.innerAudioContext.stop();
     this.setData({
       state: 'paused',
+      'play.currentTime': '00:00',
       'play.persent': 0
     })
+  },
+  // 渲染秒数
+  sliderChanging: function (e) {
+    var persent = e.detail.value
+  },
+  // 同步数据
+  sliderChange: function (e) {
+    var persent = e.detail.value
+    this.setData({
+      'play.persent': persent
+    })
+    var time =  Math.floor(this.data.music.duration / 1000)
+    var per = this.data.play.persent/100
+    this.setData({
+      'play.currentTime': this.formatTime(time*per*1000)
+    })
+    this.innerAudioContext.seek(time*per)
   },
   // 格式化时间
   formatTime: function (num) {
@@ -41,10 +59,9 @@ Page({
         tv: -1
       }),
       success(res){
-        var data = res.data
-        console.log(data);
+        let lyric = res.data.lrc.lyric.split('[')
         that.setData({
-          lyric: data
+          lyric: lyric
         })
       }
     })
@@ -75,7 +92,7 @@ Page({
   data: {
     url: '',
     id: '',
-    lyric: {},
+    lyric: [],
     music: {},
     state: 'running',
     play: {
@@ -96,30 +113,33 @@ Page({
     })
     this.getLyrics();
     this.getMusicinfo();
-    // 创建 InnerAudioContext 实例
     this.innerAudioContext = wx.createInnerAudioContext();
-    // 设置音频源
     this.innerAudioContext.src = this.data.url;
-    // 监听音频播放事件
     this.innerAudioContext.onPlay(() => {
-      console.log('音频开始播放');
+      console.log('音频播放');
     });
-    // 监听音频暂停事件
     this.innerAudioContext.onPause(() => {
       console.log('音频暂停播放');
     });
-    // 监听音频停止事件
     this.innerAudioContext.onStop(() => {
       console.log('音频停止播放');
     });
-    // 监听音频播放结束事件
     this.innerAudioContext.onEnded(() => {
       console.log('音频播放结束');
     });
-    // 监听音频播放错误事件
     this.innerAudioContext.onError((res) => {
       console.error('音频播放错误', res);
     });
+    setInterval(() => {
+      if (this.data.state === "running") {
+        const currentTime = this.data.play.currentTime;
+        const time = parseInt(currentTime.split(':')[0]) * 60 + parseInt(currentTime.split(':')[1]) + 1
+        console.log(this.formatTime(time*1000));
+        this.setData({
+          'play.currentTime': this.formatTime(time*1000)
+        })
+      }
+    }, 1000);
   },    
 
   /**

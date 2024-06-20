@@ -5,10 +5,12 @@
   background-color: #1A1A21;
 
   .control{
-    margin: 1rem 2.7rem;
+    display: flex;
+    justify-content: center;
 
     van-image{
       padding: 1rem;
+      
     }
   }
 }

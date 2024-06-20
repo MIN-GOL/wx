@@ -16,7 +16,7 @@ Page({
   // 转到详细页面播放器
   toRadio: function (e) {
     const id = e.currentTarget.id
-    wx.switchTab({
+    wx.navigateTo({
       url: "/pages/radio/radio?id="+id
     })
   },

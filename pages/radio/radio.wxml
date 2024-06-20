@@ -21,11 +21,11 @@
         </view>
       </view>
       <view class="control">
-      <van-image 
-        width="4rem"
-        height="4rem"
-        bind:tap="playAudio" 
-        src="/assets/play.png"/>
+        <van-image 
+          width="4rem"
+          height="4rem"
+          bind:tap="playAudio" 
+          src="/assets/play.png"/>
         <van-image 
         width="4rem"
         height="4rem"
