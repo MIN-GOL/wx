@@ -18,7 +18,7 @@ Page({
         type: 1,
         offset: 0,
         total: true,
-        limit: 10
+        limit: 15
       },
       success(res){
         const resp = res.data

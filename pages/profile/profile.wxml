@@ -24,17 +24,19 @@
   </view>
 
   <view class="card">
+    <view class="my">
+      我的歌单
+    </view>
     <view class="list" wx:for="{{all}}" wx:key="index">
-      <view>
+      <view style="display: flex;align-items: center;">
         <view class="img">
-        <!-- <van-image width="5rem" height="5rem" fit="cover"></van-image> -->
+        <van-image width="5rem" height="5rem" fit="cover" src="{{item.coverImgUrl}}"></van-image>
         </view>
         <view class="title">
-          {{[item]}}
+          {{item.name}}
         </view>
       </view>
-    </view>
-   
+    </view>  
   </view>
 </view>
 
