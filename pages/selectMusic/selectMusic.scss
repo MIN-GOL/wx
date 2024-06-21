@@ -1,1 +1,22 @@
 /* pages/selectMusic/selectMusic.wxss */
+.contains{
+  width: 100vw;
+  height: 100%;
+  background-color: #1A1A21;
+
+  .search{
+    .list{
+      margin: .3rem 1rem;
+      color: #FFF;
+
+      .name{
+        font-size: 17px;
+      }
+
+      .se{
+        color: #7e7e7e;
+        font-size: 14px;
+      }
+    }
+  }
+}

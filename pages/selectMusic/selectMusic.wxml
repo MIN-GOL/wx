@@ -1,2 +1,26 @@
 <!--pages/selectMusic/selectMusic.wxml-->
-<text>pages/selectMusic/selectMusic.wxml</text>
+<view class="contains">
+  <van-search value="{{ value }}" placeholder="请输入搜索关键词" background="#1A1A21" bind:change="onChange" bind:search="onSearch" shape="round" />
+
+  <view class="search" wx:if="{{value}}" wx:for="{{resp.songs}}" wx:key="index">
+    <view class="list" bind:tap="toRadio" id="{{item.id}}">
+      <!-- 歌名 -->
+      <keyword-highlight class="name" text="{{item.name}}" keyword="{{value}}" color="#DC3843">
+        {{ item.name }}
+      </keyword-highlight>
+      <view class="se">
+        <!-- 歌手 -->
+        <keyword-highlight class="artist" text="{{item.artists[0].name}}" keyword="{{value}}" color="#DC3843">
+          {{item.artists[0].name}}
+        </keyword-highlight>
+        -
+        <!-- 专辑名字 -->
+        <keyword-highlight class="album" text="{{item.album.name}}" keyword="{{value}}" color="#DC3843">
+          {{ item.album.name }}
+        </keyword-highlight>
+        <van-divider borderColor="#2F2F35" />
+      </view>
+    </view>
+  </view>
+</view>
+<van-toast id="van-toast" />
