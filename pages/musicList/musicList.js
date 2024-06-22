@@ -26,7 +26,6 @@ Page({
       wx.removeStorageSync('musicList')
     }
   },
-
   // 获取歌单
   getMusicList: function () {
     var that = this;
@@ -47,7 +46,8 @@ Page({
           if (code === 200 ) {
             // 存入data
             that.setData({
-              list: res.data.result
+              list: res.data.result,
+              time: that.getMyDate(res.data.result.trackUpdateTime)
             })
             // 判断缓存
             let sync = wx.getStorageSync('musicList')
@@ -83,12 +83,32 @@ Page({
       url: "/pages/radio/radio?id="+id
     })
   },
+  // 格式化时间
+  getMyDate: function(str) {
+    let oDate = new Date(str),
+    oYear = oDate.getFullYear(),
+    oMonth = oDate.getMonth() + 1,
+    oDay = oDate.getDate(),
+    oHour = oDate.getHours(),
+    oMin = oDate.getMinutes(),
+    oSen = oDate.getSeconds(),
+    oTime = oYear + '-' + this.addZero(oMonth) + '-' + this.addZero(oDay) + ' ' + this.addZero(oHour) + ':' +
+    this.addZero(oMin) + ':' + this.addZero(oSen);
+    return oTime;
+  },
+  addZero(num) {
+    if (parseInt(num) < 10) {
+      num = '0' + num;
+    }
+    return num;
+  },
   /**
    * 页面的初始数据
    */
   data: {
     id: '',
-    list: {}
+    list: {},
+    time: ''
   },
 
   /**

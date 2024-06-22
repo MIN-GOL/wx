@@ -44,12 +44,20 @@ Page({
       }
     })
   },
+  toList: function (e) {
+    const id = e.currentTarget.id
+    // 判断缓存是否有数据 有的话进行更新
+    wx.setStorageSync('list_id', id);
+    wx.switchTab({
+      url: "/pages/musicList/musicList"
+    })
+  },
   /**
    * 页面的初始数据
    */
   data: {
     info: {},
-    list: [9773625535, 9371418354, 8216469383],
+    list: [9773625535, 10180993460, 8216469383],
     all:{}
   },
 

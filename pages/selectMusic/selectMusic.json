@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "搜索音乐",
+  "navigationBarTitleText": "版权所有@202335720334 吴起明",
   "usingComponents": {
     "van-search": "@vant/weapp/search/index",
     "van-toast": "@vant/weapp/toast/index",

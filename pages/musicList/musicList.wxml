@@ -1,12 +1,15 @@
 <!--pages/musicList/musicList.wxml-->
 <view class="contains">
     <view class="header">
-      {{ list.name }}
+      <view class="title">{{ list.name }}</view>
+      <view class="desc" wx:if="{{list.description}}">{{ list.description }}</view>
     </view>
-    <view class="desc">{{ list.description }}</view>
   <view class="card">
-    <view class="list">
-      <view>评论数量{{ list.commentCount}}</view>
+    <view class="list" wx:if="{{list}}">
+      <text space="{{true}}" decode="{{true}}">更新时间&ensp;{{time}}</text>
+      <text style="color: #FFF;">
+          版权所有@202335720334 吴起明
+    </text>
       <view wx:for="{{list.tracks}}" wx:key="index" class="list_item">
         <view class="index">No.{{index}}</view>
         <van-image
@@ -25,6 +28,10 @@
            </text>
         </text>
       </view>
+    </view>
+    <view wx:else class="t">
+      <van-loading type="spinner" />
+      数据加载中...
     </view>
   </view>
 

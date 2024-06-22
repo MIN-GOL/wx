@@ -2,7 +2,6 @@
 import Toast from '@vant/weapp/toast/toast';
 const fs = wx.getFileSystemManager();
 
-
 Page({
   // 跳转到列表详情
   toList: function (e) {
@@ -63,8 +62,10 @@ Page({
           if (list_m.length <= 0) {
             wx.setStorageSync('list_m', res.data)
             console.log('本地存入成功');
+          }else{
+            console.log('本地已存在');
           }
-          console.log('本地已存在');
+          
         }
       }
     })

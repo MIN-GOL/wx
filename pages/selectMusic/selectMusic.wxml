@@ -1,8 +1,17 @@
 <!--pages/selectMusic/selectMusic.wxml-->
 <view class="contains">
-  <van-search value="{{ value }}" placeholder="请输入搜索关键词" background="#1A1A21" bind:change="onChange" bind:search="onSearch" shape="round" />
+  <van-search 
+    value="{{ value }}" 
+    placeholder="请输入搜索关键词" 
+    background="#1A1A21" 
+    bind:change="onChange" 
+    bind:search="onSearch" 
+    shape="round" />
 
-  <view class="search" wx:if="{{value}}" wx:for="{{resp.songs}}" wx:key="index">
+  <view class="search" 
+    wx:if="{{value}}" 
+    wx:for="{{resp.songs}}" 
+    wx:key="index">
     <view class="list" bind:tap="toRadio" id="{{item.id}}">
       <!-- 歌名 -->
       <keyword-highlight class="name" text="{{item.name}}" keyword="{{value}}" color="#DC3843">

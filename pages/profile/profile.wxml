@@ -25,10 +25,10 @@
 
   <view class="card">
     <view class="my">
-      我的歌单
+      我的歌单 - 版权所有@202335720334 吴起明
     </view>
     <view class="list" wx:for="{{all}}" wx:key="index">
-      <view style="display: flex;align-items: center;">
+      <view style="display: flex;align-items: center;" id="{{item.id}}" bind:tap="toList">
         <view class="img">
         <van-image width="5rem" height="5rem" fit="cover" src="{{item.coverImgUrl}}"></van-image>
         </view>
